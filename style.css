@@ -108,3 +108,23 @@ body {
   font-weight: 700;
   margin-left: auto;
 }
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: (--font);
+  font-size: 1rem;
+  font-weight: 900;
+  width: 100%;
+  color: white;
+  background-color: var(--clr-primary-bright);
+  border: none;
+  border-radius: var(--border-radius-small);
+  min-height: 50px;
+}
+
+.button--transparent {
+  color: var(--clr-neutral-desaturated);
+  background-color: unset;
+}
