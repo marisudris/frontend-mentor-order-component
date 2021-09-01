@@ -17,7 +17,7 @@
   --font: "Red Hat Display", sans-serif;
 
   --border-radius-big: 20px;
-  --border-radius-small: 10px
+  --border-radius-small: 10px;
 }
 
 body {
@@ -52,7 +52,7 @@ body {
   }
 }
 
-.card__body >  * + * {
+.card__body > * + * {
   margin-top: 1.5em;
 }
 
@@ -65,4 +65,46 @@ body {
 
 .card__copy {
   color: var(--clr-neutral-desaturated);
+}
+
+.card__details {
+  background-color: var(--clr-neutral-pale);
+  border-radius: var(--border-radius-small);
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+.card__details::before {
+  content: "";
+  display: block;
+  flex: 0 0 3rem;
+  height: 3rem;
+  background-image: url(images/icon-music.svg);
+}
+
+@media screen and (min-width: 1000px) {
+  .card__details {
+    padding: 1.5em;
+  }
+}
+
+.card__cost-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.2em;
+}
+
+.card__cost-plan {
+  color: var(--clr-neutral-dark);
+  font-weight: 900;
+}
+
+.card__cost-amount {
+  color: var(--clr-neutral-desaturated);
+}
+.card__cost-link {
+  color: var(--clr-primary-bright);
+  font-weight: 700;
+  margin-left: auto;
 }
