@@ -15,12 +15,54 @@
   --clr-neutral-dark: hsl(223, 47%, 23%);
 
   --font: "Red Hat Display", sans-serif;
+
+  --border-radius-big: 20px;
+  --border-radius-small: 10px
 }
 
 body {
   min-height: 100vh;
+  background-color: var(--clr-primary-pale);
+  padding: 1.5em;
   margin: 0;
   display: grid;
   place-content: center;
   font-family: var(--font);
+}
+
+.card {
+  max-width: 42ch;
+  background-color: white;
+  border-radius: var(--border-radius-big);
+  overflow: hidden;
+}
+
+.card__img {
+  max-width: 100%;
+}
+
+.card__body {
+  padding: 1.5em;
+  text-align: center;
+}
+
+@media screen and (min-width: 1000px) {
+  .card__body {
+    padding: 3rem;
+  }
+}
+
+.card__body >  * + * {
+  margin-top: 1.5em;
+}
+
+.card__title {
+  color: var(--clr-neutral-dark);
+  font-size: calc(1.3rem + 0.5vw);
+  font-weight: 900;
+  margin: 0;
+}
+
+.card__copy {
+  color: var(--clr-neutral-desaturated);
 }
