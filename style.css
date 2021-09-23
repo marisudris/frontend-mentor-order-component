@@ -18,6 +18,8 @@
 
   --border-radius-big: 20px;
   --border-radius-small: 10px;
+  --shadow: 0 55px 60px -40px var(--clr-neutral-desaturated);
+  --button-shadow: 0 25px 20px 0 var(--clr-neutral-pale);
 }
 
 body {
@@ -35,6 +37,7 @@ body {
   background-color: white;
   border-radius: var(--border-radius-big);
   overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
 .card__img {
@@ -113,7 +116,7 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-family: (--font);
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 900;
   width: 100%;
@@ -122,9 +125,11 @@ body {
   border: none;
   border-radius: var(--border-radius-small);
   min-height: 50px;
+  box-shadow: var(--button-shadow);
 }
 
 .button--transparent {
   color: var(--clr-neutral-desaturated);
   background-color: unset;
+  box-shadow: none;
 }
