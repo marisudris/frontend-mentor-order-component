@@ -13,23 +13,28 @@
   --clr-neutral-pale: hsl(225, 100%, 98%);
   --clr-neutral-desaturated: hsl(224, 23%, 55%);
   --clr-neutral-dark: hsl(223, 47%, 23%);
-
+  --clr-shadow: rgba(0, 0, 0, 0.07);
   --font: "Red Hat Display", sans-serif;
 
   --border-radius-big: 20px;
   --border-radius-small: 10px;
-  --shadow: 0 55px 60px -40px var(--clr-neutral-desaturated);
-  --button-shadow: 0 25px 20px 0 var(--clr-neutral-pale);
+  --shadow: 0 32px 64px -32px var(--clr-shadow);
+  --button-shadow: 0 24px 24px var(--clr-primary-pale);
 }
 
 body {
   min-height: 100vh;
   background-color: var(--clr-primary-pale);
-  padding: 1.5em;
   margin: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   place-content: center;
   font-family: var(--font);
+}
+
+body > * {
+  margin-top: 3em;
 }
 
 .card {
@@ -41,7 +46,9 @@ body {
 }
 
 .card__img {
-  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  vertical-align: text-bottom;
 }
 
 .card__body {
@@ -56,7 +63,7 @@ body {
 }
 
 .card__body > * + * {
-  margin-top: 1.5em;
+  margin-top: 1.75em;
 }
 
 .card__title {
@@ -68,6 +75,7 @@ body {
 
 .card__copy {
   color: var(--clr-neutral-desaturated);
+  line-height: 1.6;
 }
 
 .card__details {
@@ -76,6 +84,7 @@ body {
   display: flex;
   align-items: center;
   padding: 1em;
+  line-height: 1.6;
 }
 
 .card__details::before {
@@ -112,12 +121,16 @@ body {
   margin-left: auto;
 }
 
+.card__actions > * + * {
+  margin-top: 1.25em;
+}
+
 .button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   font-family: var(--font);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 900;
   width: 100%;
   color: white;
@@ -132,4 +145,12 @@ body {
   color: var(--clr-neutral-desaturated);
   background-color: unset;
   box-shadow: none;
+}
+
+.footer {
+  padding: 1.5em;
+  color: white;
+  background-color: var(--clr-primary-bright);
+  text-align: center;
+  align-self: stretch;
 }
