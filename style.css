@@ -23,14 +23,14 @@
 }
 
 body {
+  font-family: var(--font);
   min-height: 100vh;
   background-color: var(--clr-primary-pale);
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  place-content: center;
-  font-family: var(--font);
+  justify-content: center;
 }
 
 body > * {
@@ -39,17 +39,17 @@ body > * {
 
 .card {
   max-width: 42ch;
-  margin: 1em;
+  margin: 1em; /* for viewport gap on small screens */
   background-color: white;
   border-radius: var(--border-radius-big);
-  overflow: hidden;
+  overflow: hidden; /* fixes border radius issue for image */
   box-shadow: var(--shadow);
 }
 
 .card__img {
   width: 100%;
   object-fit: cover;
-  vertical-align: text-bottom;
+  vertical-align: text-bottom; /* fixes phantom bottom space */
 }
 
 .card__body {
@@ -77,23 +77,23 @@ body > * {
 .card__copy {
   color: var(--clr-neutral-desaturated);
 
-  line-height: 1.6;
-  margin: 1em 0;
+  line-height: 1.6; /* setting both together since line height and    */
+  margin: 1em 0;    /* margin both affect visual space before/after text */
 }
 
 .card__details {
-  background-color: var(--clr-neutral-pale);
-  border-radius: var(--border-radius-small);
   display: flex;
   align-items: center;
   padding: 1em;
+  background-color: var(--clr-neutral-pale);
+  border-radius: var(--border-radius-small);
   line-height: 1.6;
 }
 
 .card__details::before {
   content: "";
   display: block;
-  flex: 0 0 3rem;
+  flex: 0 0 3rem; /* set size don't allow flex shriking */
   height: 3rem;
   background-image: url(images/icon-music.svg);
 }
@@ -129,18 +129,18 @@ body > * {
 }
 
 .button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  color: white;
   font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 900;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  color: white;
+  min-height: 50px;
   background-color: var(--clr-primary-bright);
   border: none;
   border-radius: var(--border-radius-small);
-  min-height: 50px;
   box-shadow: var(--button-shadow);
 }
 
@@ -151,11 +151,11 @@ body > * {
 }
 
 .footer {
-  padding: 1.5em;
   color: white;
+  padding: 1.5em;
   background-color: var(--clr-primary-bright);
-  text-align: center;
   align-self: stretch;
+  text-align: center;
 }
 
 .footer a {
