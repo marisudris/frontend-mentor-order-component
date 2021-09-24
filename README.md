@@ -1,91 +1,121 @@
-# Frontend Mentor - Order summary card
+# Frontend Mentor - Order summary card solution
 
-![Design preview for the Order summary card coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Order summary card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/order-summary-component-QlPmajDUj). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this order summary card component and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - See hover states for interactive elements
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+![](./design/result.png) 
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Solution URL: [Github](https://github.com/marisudris/frontend-mentor-order-component)
+- Live Site URL: [Github Pages](https://marisudris.github.io/frontend-mentor-order-component/)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+I basically used a top-down/outside-in approach, starting with containing
+card element, working inwards, and from top to bottom. Details like shadows,
+text color, hover styles & transitions came after finishing layouts. After
+that came the painstaking detail adjustment and fine-tuning.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Built with
 
-## Building your project
+- CSS custom properties
+- BEM naming convention
+- Flexbox
+- Mobile-first workflow (for the most part, sometimes switching to desktop view
+  a bit early to hash out some details)
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### What I learned
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+Project time estimation is tricky, and the closer I got to finishing the task - the
+longer it seemed to take. I felt a strong desire for pixel-perfect(ish)
+implementation, however, as the warnings against it say - it's a hard and pretty much
+unnecessary task. The best way to go is to try to extrapolate the *intent*
+behind certain styles (like spacing before & after an element - are they equal,
+or do they seem to differ?) and implement them with adjustments, if necessary.
 
-## Deploying your project
+As for spacing between various card elements - I decided to go with the
+*lobotomized owl* selector and let the parent card control the spacing (via
+margins) between its child elements:
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+```css
+.card__body > * + * {
+  margin-top: 1.75em
+}
+```
+However - the pure copy text inside the card (which I enclosed in
+*.card__copy* class) felt vertically misaligned with bigger than normal
+spacing relative to its sibling elements - the reason seems to be the
+extra line-height making the line boxes bigger and adding more visual space above 
+and below the text (the size of half the computed line height) in addition to margin.
+Since the text itself is not enclosed in a border box and doesn't have its own
+background color - the spacing and vertical rhythm measurements start from the text itself.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+The vertical spacing introduced by the extra line-height (which also could've been padding) visually *merges* with the margin. For this reason I decided to override its margin to make it slightly smaller, while setting its line-height to be larger & according to the design:
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+```css
+.card__copy {
+  line-height: 1.6;
+  margin: 1em 0;
+}
+```
 
-## Create a custom `README.md`
+### Continued development
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+Going forward I plan to focus on turning a design into a properly
+structured and accessible HTML - particularly when it's not 100% clear how to do
+it or when there are multiple options on how to accomplish this and give some
+good styling hooks for coding CSS. One particular issue here I ran into was the
+button-vs-link choice. It prompted me to do some research and there seems to be
+a growing consensus on the idea of [material honesty](https://medium.com/simple-human/but-sometimes-links-look-like-buttons-and-buttons-look-like-links-9b371c57b3d2).
+According to it - links should *look* like links and buttons should *look* like buttons. So in
+this particular project I tried to do just that - even though there are some
+gray areas - the *Cancel* button may very well be a link, however I chose to
+interpret it as a button which could just clear the items without navigating
+the user away from the page and given that it looks like it's vertically grouped together with the *call-to-action* button. The purple *call-to-action* button could be a link
+(if it navigates the user to a new checkout page or similar), however, since it *looks* like
+a button in the design, I chose to mark it up as a button. The choice could be
+affected by the knowledge of how the page/app behaves in this particular
+scenario and use case in a real world project.  
+Aside from all things I mentioned, I'm looking forward to learning efficient
+CSS rule application - sometimes I felt like I'm *overengineering* some
+solutions (an issue that can be exacerbated by chasing pixel-perfection).
+I tried to adhere to a *single source of truth* rule of programming, hence
+I used CSS variables where I could, used the BEM naming convention to make it more
+modular and keep the specificity more streamlined and coherent - even though 
+this is a relatively small project and the benefits of BEM or other types of
+conventions are less beneficial here.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+### Useful resources
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+- [Modern CSS](https://moderncss.dev/) - full of modern CSS solution ideas. In this particular instance I borrowed some [button styling](https://moderncss.dev/css-button-styling-guide/) ideas, with using inline-flex, centering and then freely setting min-heights.
+- [Every Layout](https://every-layout.dev/) - by [Heydon Pickering](https://twitter.com/heydonworks) & [Andy Bell](https://twitter.com/piccalilli_). This is quite an amazing resource for learning systematic layout design and learning how a particular layout can be implemented. This is a resource I'll probably use and refer to in every front-end project. I used the [Stack](https://every-layout.dev/layouts/stack/) layout here and borrowed the *lobotomized owl* selector idea from here (I chose to use the default block layout event though flex column could've worked too).
 
-## Submitting your solution
+## Author
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- GitHib - [Maris Ūdris](https://github.com/marisudris)
+- Frontend Mentor - [@harlequiin](https://www.frontendmentor.io/profile/harlequiin)
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀

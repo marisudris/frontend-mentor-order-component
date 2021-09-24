@@ -9,7 +9,7 @@
 :root {
   --clr-primary-pale: hsl(225, 100%, 94%);
   --clr-primary-bright: hsl(245, 75%, 52%);
-  --clr-primary-lightened: 	hsl(245, 83%, 68%);
+  --clr-primary-lightened: hsl(245, 83%, 68%);
 
   --clr-neutral-pale: hsl(225, 100%, 98%);
   --clr-neutral-desaturated: hsl(224, 23%, 55%);
@@ -35,13 +35,9 @@ body {
   justify-content: center;
 }
 
-body > * {
-  margin-top: 3em;
-}
-
 .card {
   max-width: 42ch;
-  margin: 1em; /* for viewport gap on small screens */
+  margin: 4em 1em; /* for viewport gap on small screens */
   background-color: white;
   border-radius: var(--border-radius-big);
   overflow: hidden; /* fixes border radius issue for image */
@@ -80,7 +76,7 @@ body > * {
   color: var(--clr-neutral-desaturated);
 
   line-height: 1.6; /* setting both together since line height and    */
-  margin: 1em 0;    /* margin both affect visual space before/after text */
+  margin: 1em 0; /* margin both affect visual space before/after text */
 }
 
 .card__details {
@@ -158,7 +154,8 @@ body > * {
   cursor: pointer;
 }
 
-.button--transparent, .button--transparent:hover {
+.button--transparent,
+.button--transparent:hover {
   color: var(--clr-neutral-desaturated);
   background-color: unset;
   box-shadow: none;
