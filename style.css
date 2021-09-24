@@ -13,13 +13,13 @@
   --clr-neutral-pale: hsl(225, 100%, 98%);
   --clr-neutral-desaturated: hsl(224, 23%, 55%);
   --clr-neutral-dark: hsl(223, 47%, 23%);
-  --clr-shadow: rgba(0, 0, 0, 0.07);
+  --clr-shadow: hsla(245, 75%, 52%, 14%);
   --font: "Red Hat Display", sans-serif;
 
   --border-radius-big: 20px;
   --border-radius-small: 10px;
-  --shadow: 0 32px 64px -32px var(--clr-shadow);
-  --button-shadow: 0 24px 24px var(--clr-primary-pale);
+  --shadow: 0 40px 24px -16px var(--clr-shadow);
+  --button-shadow: 0 24px 16px var(--clr-shadow);
 }
 
 body {
