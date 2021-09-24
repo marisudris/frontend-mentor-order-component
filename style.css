@@ -164,15 +164,3 @@ body {
 .button--transparent:hover {
   color: var(--clr-neutral-dark);
 }
-
-.footer {
-  color: white;
-  padding: 1.5em;
-  background-color: var(--clr-primary-bright);
-  align-self: stretch;
-  text-align: center;
-}
-
-.footer a {
-  color: inherit;
-}
