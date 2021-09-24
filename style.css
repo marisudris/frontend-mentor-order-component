@@ -9,6 +9,7 @@
 :root {
   --clr-primary-pale: hsl(225, 100%, 94%);
   --clr-primary-bright: hsl(245, 75%, 52%);
+  --clr-primary-lightened: 	hsl(245, 83%, 68%);
 
   --clr-neutral-pale: hsl(225, 100%, 98%);
   --clr-neutral-desaturated: hsl(224, 23%, 55%);
@@ -20,6 +21,7 @@
   --border-radius-small: 10px;
   --shadow: 0 40px 24px -16px var(--clr-shadow);
   --button-shadow: 0 24px 16px var(--clr-shadow);
+  --interactive-elem-transition: all 0.2s ease-in;
 }
 
 body {
@@ -124,6 +126,12 @@ body > * {
   margin-left: auto;
 }
 
+.card__cost-link:hover {
+  color: var(--clr-primary-lightened);
+  text-decoration: none;
+  transition: var(--interactive-elem-transition);
+}
+
 .card__actions > * + * {
   margin-top: 1.25em;
 }
@@ -142,12 +150,22 @@ body > * {
   border: none;
   border-radius: var(--border-radius-small);
   box-shadow: var(--button-shadow);
+  transition: var(--interactive-elem-transition);
 }
 
-.button--transparent {
+.button:hover {
+  background-color: var(--clr-primary-lightened);
+  cursor: pointer;
+}
+
+.button--transparent, .button--transparent:hover {
   color: var(--clr-neutral-desaturated);
   background-color: unset;
   box-shadow: none;
+}
+
+.button--transparent:hover {
+  color: var(--clr-neutral-dark);
 }
 
 .footer {
