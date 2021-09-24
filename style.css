@@ -39,6 +39,7 @@ body > * {
 
 .card {
   max-width: 42ch;
+  margin: 1em;
   background-color: white;
   border-radius: var(--border-radius-big);
   overflow: hidden;
@@ -56,9 +57,9 @@ body > * {
   text-align: center;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 450px) {
   .card__body {
-    padding: 3rem;
+    padding: 3em 3em 2em;
   }
 }
 
@@ -75,7 +76,9 @@ body > * {
 
 .card__copy {
   color: var(--clr-neutral-desaturated);
+
   line-height: 1.6;
+  margin: 1em 0;
 }
 
 .card__details {
@@ -95,7 +98,7 @@ body > * {
   background-image: url(images/icon-music.svg);
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 450px) {
   .card__details {
     padding: 1.5em;
   }
@@ -153,4 +156,8 @@ body > * {
   background-color: var(--clr-primary-bright);
   text-align: center;
   align-self: stretch;
+}
+
+.footer a {
+  color: inherit;
 }
